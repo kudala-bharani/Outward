@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-06T21:14:56.536Z",
+  "runtime": "Node v24.19.0, local CPU / ONNX Runtime",
+  "transformers": "4.3.0",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "dtype": "q8",
+  "dimensions": 384,
+  "relatedSimilarity": 0.7051590138516927,
+  "unrelatedSimilarity": -0.015414361911862387,
+  "elapsedSeconds": 12.27,
+  "examples": [
+    {
+      "mood": "I am exhausted and want to sit quietly without having to do anything.",
+      "selected": [
+        {
+          "id": "soft-focus",
+          "title": "Let the view be enough",
+          "cosine": 0.7029509620778022
+        },
+        {
+          "id": "one-thing-changing",
+          "title": "Watch one thing change",
+          "cosine": 0.6796500092949256
+        },
+        {
+          "id": "quiet-edge",
+          "title": "Find the quieter edge",
+          "cosine": 0.5196072000421468
+        }
+      ]
+    },
+    {
+      "mood": "I am restless and bored. I want to walk, move around and explore.",
+      "selected": [
+        {
+          "id": "familiar-detour",
+          "title": "Take the familiar detour",
+          "cosine": 0.6838383675287453
+        },
+        {
+          "id": "tiny-world",
+          "title": "Find a tiny world",
+          "cosine": 0.5091707361792108
+        },
+        {
+          "id": "slow-loop",
+          "title": "Make a very small loop",
+          "cosine": 0.5771414992037711
+        }
+      ]
+    },
+    {
+      "mood": "I want to listen to birds and natural sounds.",
+      "selected": [
+        {
+          "id": "bird-pause",
+          "title": "Wait for a wingbeat",
+          "cosine": 0.6981424738778738
+        },
+        {
+          "id": "sound-map",
+          "title": "Make a sound map",
+          "cosine": 0.5585006580010178
+        },
+        {
+          "id": "wind-witness",
+          "title": "Watch the invisible",
+          "cosine": 0.39048532290462834
+        }
+      ]
+    }
+  ],
+  "stationaryFilterPassed": true,
+  "scope": "Actual pinned model loading (available cache may be reused), local CPU inference, semantic ranking, and hard filters. Fresh download and browser UI/WASM verification are separate.",
+  "modelCard": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/tree/751bff37182d3f1213fa05d7196b954e230abad9",
+  "license": "Apache-2.0 (declared by upstream model and ONNX distribution)"
+}

@@ -1,0 +1,88 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-06T21:17:01.439Z",
+  "runtime": "Node v24.19.0 hosting actual ONNX Runtime Web WASM",
+  "runtimeVersion": "1.31.0-dev.20260914-8d85527a0",
+  "backend": "wasm",
+  "binary": "ort-wasm-simd-threaded.wasm",
+  "binaryBytes": 14264838,
+  "binarySHA256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+  "threads": 1,
+  "proxy": false,
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "dtype": "q8",
+  "modelBytes": 22972370,
+  "modelSHA256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+  "dimensions": 384,
+  "meanPooling": true,
+  "normalized": true,
+  "relatedSimilarity": 0.7136796778489585,
+  "unrelatedSimilarity": -0.021399503987536737,
+  "examples": [
+    {
+      "mood": "I am exhausted and want to sit quietly without having to do anything.",
+      "selected": [
+        {
+          "id": "soft-focus",
+          "title": "Let the view be enough",
+          "cosine": 0.698316951159921
+        },
+        {
+          "id": "one-thing-changing",
+          "title": "Watch one thing change",
+          "cosine": 0.6618583648356418
+        },
+        {
+          "id": "quiet-edge",
+          "title": "Find the quieter edge",
+          "cosine": 0.5082528212513634
+        }
+      ]
+    },
+    {
+      "mood": "I am restless and bored. I want to walk, move around and explore.",
+      "selected": [
+        {
+          "id": "familiar-detour",
+          "title": "Take the familiar detour",
+          "cosine": 0.6976991778739773
+        },
+        {
+          "id": "slow-loop",
+          "title": "Make a very small loop",
+          "cosine": 0.5976654946563582
+        },
+        {
+          "id": "tiny-world",
+          "title": "Find a tiny world",
+          "cosine": 0.5010510746184261
+        }
+      ]
+    },
+    {
+      "mood": "I want to listen to birds and natural sounds.",
+      "selected": [
+        {
+          "id": "bird-pause",
+          "title": "Wait for a wingbeat",
+          "cosine": 0.6978765714357725
+        },
+        {
+          "id": "sound-map",
+          "title": "Make a sound map",
+          "cosine": 0.5558153748094841
+        },
+        {
+          "id": "wind-witness",
+          "title": "Watch the invisible",
+          "cosine": 0.38894569560404674
+        }
+      ]
+    }
+  ],
+  "stationaryFilterPassed": true,
+  "elapsedSeconds": 1.08,
+  "scope": "Actual standard browser-target ONNX Web WASM binary ran the pinned q8 model in Node with the pinned BertTokenizer, mean pooling, L2 normalization and production selection algorithm.",
+  "unverified": "This is not a browser test. Browser worker startup, bundler aliases, hosted asset paths, cache behavior, CSP, CORS, and interactive UI still need browser verification."
+}

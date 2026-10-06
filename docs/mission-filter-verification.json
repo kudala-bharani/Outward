@@ -1,0 +1,307 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-06T21:14:33.689Z",
+  "command": "npm run test:model-filters",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "runtime": "Node v24.19.0, local CPU / ONNX Runtime",
+  "realModelPlansChecked": 36,
+  "excludeListeningPassed": true,
+  "noRepeatPassed": true,
+  "settingAndPacePassed": true,
+  "emptyAndUnrelatedInputPassed": true,
+  "requestOptionsNotPersistedPassed": true,
+  "activeTripPrivacyPassed": true,
+  "elapsedSeconds": 13.15,
+  "scope": "Pinned real-model inference for every setting/pace pair with listening excluded, blank/related/unrelated notes, and a second non-overlapping set; active-trip persistence is checked with in-memory storage. Cached model files may be reused. This is not browser verification.",
+  "cases": [
+    {
+      "setting": "neighborhood",
+      "pace": "wander",
+      "mood": "",
+      "eligibleCount": 18,
+      "first": [
+        "wind-witness",
+        "doorstep-distance",
+        "soft-focus"
+      ],
+      "next": [
+        "weather-minute",
+        "ordinary-beauty",
+        "sky-window"
+      ]
+    },
+    {
+      "setting": "neighborhood",
+      "pace": "wander",
+      "mood": "I want to listen to birds and natural sounds.",
+      "eligibleCount": 18,
+      "first": [
+        "wind-witness",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "branch-lines",
+        "soft-focus",
+        "cloud-story"
+      ]
+    },
+    {
+      "setting": "neighborhood",
+      "pace": "wander",
+      "mood": "Database migrations and quarterly earnings.",
+      "eligibleCount": 18,
+      "first": [
+        "doorstep-distance",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "open-horizon",
+        "shadow-shapes",
+        "slow-loop"
+      ]
+    },
+    {
+      "setting": "neighborhood",
+      "pace": "stay",
+      "mood": "",
+      "eligibleCount": 14,
+      "first": [
+        "wind-witness",
+        "doorstep-distance",
+        "soft-focus"
+      ],
+      "next": [
+        "weather-minute",
+        "ordinary-beauty",
+        "sky-window"
+      ]
+    },
+    {
+      "setting": "neighborhood",
+      "pace": "stay",
+      "mood": "I want to listen to birds and natural sounds.",
+      "eligibleCount": 14,
+      "first": [
+        "wind-witness",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "branch-lines",
+        "soft-focus",
+        "cloud-story"
+      ]
+    },
+    {
+      "setting": "neighborhood",
+      "pace": "stay",
+      "mood": "Database migrations and quarterly earnings.",
+      "eligibleCount": 14,
+      "first": [
+        "doorstep-distance",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "shadow-shapes",
+        "one-thing-changing",
+        "ordinary-beauty"
+      ]
+    },
+    {
+      "setting": "park",
+      "pace": "wander",
+      "mood": "",
+      "eligibleCount": 18,
+      "first": [
+        "wind-witness",
+        "doorstep-distance",
+        "soft-focus"
+      ],
+      "next": [
+        "weather-minute",
+        "ordinary-beauty",
+        "sky-window"
+      ]
+    },
+    {
+      "setting": "park",
+      "pace": "wander",
+      "mood": "I want to listen to birds and natural sounds.",
+      "eligibleCount": 18,
+      "first": [
+        "wind-witness",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "branch-lines",
+        "soft-focus",
+        "cloud-story"
+      ]
+    },
+    {
+      "setting": "park",
+      "pace": "wander",
+      "mood": "Database migrations and quarterly earnings.",
+      "eligibleCount": 18,
+      "first": [
+        "doorstep-distance",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "open-horizon",
+        "shadow-shapes",
+        "slow-loop"
+      ]
+    },
+    {
+      "setting": "park",
+      "pace": "stay",
+      "mood": "",
+      "eligibleCount": 14,
+      "first": [
+        "wind-witness",
+        "doorstep-distance",
+        "soft-focus"
+      ],
+      "next": [
+        "weather-minute",
+        "ordinary-beauty",
+        "sky-window"
+      ]
+    },
+    {
+      "setting": "park",
+      "pace": "stay",
+      "mood": "I want to listen to birds and natural sounds.",
+      "eligibleCount": 14,
+      "first": [
+        "wind-witness",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "branch-lines",
+        "soft-focus",
+        "cloud-story"
+      ]
+    },
+    {
+      "setting": "park",
+      "pace": "stay",
+      "mood": "Database migrations and quarterly earnings.",
+      "eligibleCount": 14,
+      "first": [
+        "doorstep-distance",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "shadow-shapes",
+        "one-thing-changing",
+        "ordinary-beauty"
+      ]
+    },
+    {
+      "setting": "doorstep",
+      "pace": "wander",
+      "mood": "",
+      "eligibleCount": 14,
+      "first": [
+        "wind-witness",
+        "doorstep-distance",
+        "soft-focus"
+      ],
+      "next": [
+        "weather-minute",
+        "ordinary-beauty",
+        "sky-window"
+      ]
+    },
+    {
+      "setting": "doorstep",
+      "pace": "wander",
+      "mood": "I want to listen to birds and natural sounds.",
+      "eligibleCount": 14,
+      "first": [
+        "wind-witness",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "branch-lines",
+        "soft-focus",
+        "cloud-story"
+      ]
+    },
+    {
+      "setting": "doorstep",
+      "pace": "wander",
+      "mood": "Database migrations and quarterly earnings.",
+      "eligibleCount": 14,
+      "first": [
+        "doorstep-distance",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "shadow-shapes",
+        "one-thing-changing",
+        "ordinary-beauty"
+      ]
+    },
+    {
+      "setting": "doorstep",
+      "pace": "stay",
+      "mood": "",
+      "eligibleCount": 14,
+      "first": [
+        "wind-witness",
+        "doorstep-distance",
+        "soft-focus"
+      ],
+      "next": [
+        "weather-minute",
+        "ordinary-beauty",
+        "sky-window"
+      ]
+    },
+    {
+      "setting": "doorstep",
+      "pace": "stay",
+      "mood": "I want to listen to birds and natural sounds.",
+      "eligibleCount": 14,
+      "first": [
+        "wind-witness",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "branch-lines",
+        "soft-focus",
+        "cloud-story"
+      ]
+    },
+    {
+      "setting": "doorstep",
+      "pace": "stay",
+      "mood": "Database migrations and quarterly earnings.",
+      "eligibleCount": 14,
+      "first": [
+        "doorstep-distance",
+        "weather-minute",
+        "three-greens"
+      ],
+      "next": [
+        "shadow-shapes",
+        "one-thing-changing",
+        "ordinary-beauty"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+import {test,expect} from '@playwright/test';
+test('sample trip, persisted pocket mode, reflection and journal export',async({page})=>{
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('/');await page.getByRole('button',{name:'A little curiosity',exact:true}).click();
+ await page.getByRole('button',{name:'10 min',exact:true}).click();await page.getByLabel('Where can you go?').selectOption('doorstep');await page.getByRole('button',{name:'Stay in one spot',exact:true}).click();
+ await page.getByRole('button',{name:'Explore a sample instead'}).click();await expect(page.getByText('SAMPLE · NO AI USED')).toBeVisible();await expect(page.locator('.mission-list li')).toHaveCount(3);
+ await page.getByRole('button',{name:'About this sample'}).click();await expect(page.getByRole('dialog')).toBeVisible();await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).not.toBeVisible();
+ await page.getByRole('button',{name:'Take this outside'}).click();await expect(page.getByText('POCKET MODE',{exact:true})).toBeVisible();await page.reload();await expect(page.getByText('POCKET MODE',{exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Remember my three invitations'}).click();await expect(page.locator('.pocket-prompts h3')).toHaveCount(3);
+ await page.getByRole('button',{name:"I'm back",exact:true}).click();await page.getByLabel('One thing you noticed').fill('Three sparrows rearranged themselves on a fence.');await page.getByRole('button',{name:'Save my field note'}).click();await expect(page.getByText('Three sparrows rearranged themselves on a fence.')).toBeVisible();
+ await page.reload();await page.getByRole('button',{name:/Field notes/}).click();await expect(page.getByText('Three sparrows rearranged themselves on a fence.')).toBeVisible();
+ const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export notes'}).click();const download=await downloadPromise;expect(download.suggestedFilename()).toBe('outward-field-notes.json');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);expect(errors).toEqual([]);
+});
+test('discard trip and repeated sample matching stays usable',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:'Explore a sample instead'}).click();await page.getByRole('button',{name:'Explore a sample instead'}).click();await expect(page.locator('.mission-list li')).toHaveCount(3);await page.getByRole('button',{name:'Take this outside'}).click();await page.getByRole('button',{name:'End without a note'}).click();await expect(page.getByRole('heading',{name:'A small way back outside.'})).toBeVisible();await page.reload();await expect(page.getByText('POCKET MODE',{exact:true})).not.toBeVisible();
+});
+test('model download error never masquerades as AI success',async({page})=>{
+ await page.route('**/huggingface.co/**',route=>route.abort());await page.goto('/');await page.getByRole('button',{name:'Find my field trip',exact:true}).click();await expect(page.getByRole('alert')).toBeVisible({timeout:90000});await expect(page.getByText('MATCHED ON YOUR DEVICE')).not.toBeVisible();await page.getByRole('button',{name:'Explore a sample instead'}).click();await expect(page.getByText('SAMPLE · NO AI USED')).toBeVisible();
+});
+test('download cancellation does not lock controls',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:'Find my field trip',exact:true}).click();await page.getByRole('button',{name:'Cancel',exact:true}).click();await expect(page.getByRole('button',{name:'Find my field trip',exact:true})).toBeEnabled();await page.getByRole('button',{name:'Explore a sample instead'}).click();await expect(page.getByText('SAMPLE · NO AI USED')).toBeVisible();
+});
+test('alternative sets and changed constraints stay explicit',async({page})=>{
+ await page.goto('/');await page.getByRole('checkbox',{name:'Skip listening activities'}).check();await page.getByRole('button',{name:'Explore a sample instead'}).click();const first=await page.locator('.mission-list h3').allTextContents();await page.getByRole('button',{name:'Try another set'}).click();const second=await page.locator('.mission-list h3').allTextContents();expect(second.some(title=>first.includes(title))).toBe(false);await page.getByRole('button',{name:'10 min',exact:true}).click();await expect(page.getByRole('button',{name:'Take this outside'})).toBeDisabled();await page.getByRole('button',{name:'Explore a sample instead'}).click();await expect(page.getByRole('button',{name:'Take this outside'})).toBeEnabled();
+});
+test('backup restore and reversible deletion',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:/Field notes/}).click();const note={id:'fixture-e2e',title:'Look for a small detail',endedAt:1791223200000,minutes:10,feeling:'More present',note:'A test reflection for the backup flow.',missionTitles:['Look for a small detail'],mode:'demo'};await page.getByLabel('Choose an Outward backup').setInputFiles({name:'outward-backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({app:'Outward',version:1,exportedAt:'2026-10-06T02:00:00.000Z',entries:[note]}))});await expect(page.getByRole('heading',{name:'Bring your notes back.'})).toBeVisible();await page.getByRole('button',{name:'Restore notes',exact:true}).click();await expect(page.getByText(note.note,{exact:true})).toBeVisible();await page.getByRole('button',{name:`Delete note: ${note.title}`,exact:true}).click();await page.getByRole('button',{name:'Delete note',exact:true}).click();await expect(page.getByText(note.note,{exact:true})).not.toBeVisible();await page.getByRole('button',{name:'Undo',exact:true}).click();await expect(page.getByText(note.note,{exact:true})).toBeVisible();
+});

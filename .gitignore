@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.cache/
+*.tsbuildinfo
+playwright-report/
+test-results/
+.env*
+!.env.example
+artifacts/*.webm
