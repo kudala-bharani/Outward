@@ -6,7 +6,7 @@ A **two-to-three-minute recording plan**, not a completed recording or outdoor t
 
 - Check the final build against [verification.md](verification.md). Run `npm run check`, `npm run test:model`, `npm run test:wasm`, and `npm run test:model-filters`; then actually run the AI flow in the recording browser
 - Use one journal-editing tab. Concurrent edits in different tabs can overwrite each other
-- The owner-only preview needs permitted access; publication and a signed-out public URL remain separate checks
+- Open the [public Outward app](https://outward-field-guide.bharani1808.chatgpt.site). Public access and a manual Chromium walkthrough were verified on October 6; check that the build being recorded still matches the [repository](https://github.com/kudala-bharani/Outward)
 - Hide account details, notifications, and private notes. Use a readable viewport
 - If the model is already cached, say so. Otherwise show loading honestly; label any cut or speed-up
 - Do not record a sample-mode result as AI. If real inference fails, resolve the error or clearly label fallback footage **SAMPLE · NO AI USED**; it cannot serve as evidence of browser AI
@@ -26,7 +26,7 @@ Suggested narration: “Outward matches a short description of what you feel lik
 
 Suggested narration: “MiniLM compares this text with 22 fixed missions in a browser worker. It ranks existing instructions; it does not generate directions. First use downloads the model and runtime.”
 
-The Node-hosted WASM evidence returned **Wait for a wingbeat**, **Make a sound map**, and **Watch the invisible** for these settings. Show whatever the real browser returns; this reference is not permission to stage those results.
+The October 6 real Chromium walkthrough returned **Wait for a wingbeat**, **Make a sound map**, and **Watch the invisible** for this sample input, matching the Node-hosted WASM example. Show whatever the recording browser actually returns; do not stage a known result.
 
 If time permits, click **Try another set**. Show the new missions and the unchanged AI label. The current three are excluded; earlier sets can return later.
 
@@ -53,17 +53,18 @@ Avoid presenting the journal's sample trip count or recorded minutes as genuine 
 
 ## 2:25–2:45 Show the source
 
-Show the verified public repository and the catalog or matching file. If the source is not public yet, show it locally and describe it accurately; do not invent a URL.
+Show the [public repository](https://github.com/kudala-bharani/Outward) and open `src/data/missions.ts` or `src/ai/rank.ts`.
 
 Suggested narration: “The app's original code is MIT-licensed. The open model and Transformers.js use Apache-2.0. You can inspect the catalog and ranking, run the tests, and adapt the project.”
 
-End with the actual public app/repository links after their release and access are verified.
+End with the public links: [Outward app](https://outward-field-guide.bharani1808.chatgpt.site) and [source repository](https://github.com/kudala-bharani/Outward).
 
 ## Review before sharing
 
 - Real AI footage is genuine; model caching, edits, and time jumps are disclosed
 - The exact build, public links, and article agree
-- No personal outing, health benefit, offline guarantee, or browser pass is inferred from staged sample data or Node tests
+- Describe the actual manual Chromium checks accurately; the full Playwright suite, offline reload, physical mobile testing, and outdoor trial remain unperformed
+- Do not infer a personal outing or health benefit from sample data. Narrow browser windows and zoom checks are not physical-device testing
 - Sample notes cannot be mistaken for real observations
-- No private information is visible; any screenshots or video come from an actual capture
+- No private information is visible. Existing desktop AI, pocket-mode, and 500px narrow-view screenshots are genuine captures; do not invent public image URLs or imply a video has already been recorded
 - Sharing the final recording requires the owner's approval of its destination and content

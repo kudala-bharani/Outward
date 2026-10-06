@@ -656,7 +656,7 @@ export default function App() {
                   <strong>
                     {journal.reduce((s, e) => s + e.minutes, 0)}
                   </strong>{" "}
-                  minutes you recorded
+                  {journal.reduce((sum, entry) => sum + entry.minutes, 0) === 1 ? "minute" : "minutes"} you recorded
                 </div>
                 <div className="journal-grid">
                   {journal.map((entry, index) => (

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-06",
+  "method": "manual supported cloud Chromium browser",
+  "url": "https://outward-field-guide.bharani1808.chatgpt.site",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "passed": [
+    "public access without login gate",
+    "actual browser model loading and inference",
+    "three nonrepeating second-set missions",
+    "stale-plan start protection",
+    "doorstep/stay/listening constraints",
+    "pocket reload and elapsed-time recovery",
+    "fictional reflection save",
+    "JSON export without original mood",
+    "duplicate-safe restore",
+    "delete cancellation, deletion and Undo",
+    "AI cancellation and real-AI retry",
+    "dialog Enter/Escape and focus return",
+    "explicit demo label",
+    "desktop and narrow layout inspection"
+  ],
+  "sample_input": "I want to listen to birds and natural sounds.",
+  "observed_missions": [
+    "Wait for a wingbeat",
+    "Make a sound map",
+    "Watch the invisible"
+  ],
+  "similarities": [
+    0.698,
+    0.556,
+    0.389
+  ],
+  "viewports": [
+    {
+      "width": 500,
+      "document_width": 485,
+      "zoom": "100%"
+    },
+    {
+      "width": 393,
+      "document_width": 388,
+      "zoom": "300%"
+    }
+  ],
+  "unverified": [
+    "full Playwright suite",
+    "offline reload",
+    "physical phone",
+    "actual outdoor trial",
+    "full assistive-technology audit",
+    "manually forced network failure or timeout"
+  ],
+  "journal_fixture": "Demo note (fictional): a leaf moved in the wind.",
+  "screenshots": [
+    "screenshots/outward-ai-field-trip.jpg",
+    "screenshots/outward-pocket-mode.jpg",
+    "screenshots/outward-responsive-field-trip.jpg"
+  ]
+}

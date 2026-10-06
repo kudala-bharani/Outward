@@ -6,7 +6,7 @@ Outward turns a short description of your mood into three gentle outdoor mission
 
 The matching uses an open sentence-embedding model in your browser. Missions come from a curated catalog; the model chooses relevant ones rather than inventing directions.
 
-This is a new project started on **October 5, 2026**. The source is prepared for release. The verification record distinguishes model tests, browser checks, and publication status; no contest submission is implied by this source release.
+This is a new project started on **October 5, 2026**. The source and demo are public. The verification record distinguishes model tests, browser checks, and publication status; no contest submission is implied by this source release.
 
 ## What changed in 0.2.0
 
@@ -20,7 +20,7 @@ See the [changelog](CHANGELOG.md) for the before-and-after details and the [veri
 
 ## Source and local setup
 
-Source repository: [kudala-bharani/Outward](https://github.com/kudala-bharani/Outward)
+**[Try the public demo](https://outward-field-guide.bharani1808.chatgpt.site)** · [Source repository](https://github.com/kudala-bharani/Outward)
 
 The project repository was created on October 6, 2026. Development began on October 5; original project history is preserved separately from the initial public repository commit.
 
@@ -104,7 +104,15 @@ npm run test:model-filters # Reproduce the 36-plan constraint matrix
 
 If Playwright reports a missing browser executable, install its Chromium browser with `npx playwright install chromium` and rerun the browser tests.
 
-Run each command against the final working tree before a demo or release. A passing deterministic test is not proof that the real model runs, and a Node model smoke test is not proof of browser inference. Real-model download, browser inference, and the complete offline experience must be verified separately. Actual native CPU inference and browser-target WASM inference inside Node both passed again on October 6, 2026. The WASM check uses the exact 14,264,838-byte standard runtime shipped by the browser build. The real-model upgrade check also passed 36 plans covering listening exclusions and non-overlapping second sets across all settings and paces. See [native evidence](docs/model-verification.json), [WASM evidence](docs/wasm-verification.json), [constraint evidence](docs/mission-filter-verification.json), and [verification status](docs/verification.md). Browser rendering and the browser worker remain unverified because the local build environment blocks browser access and the private hosted preview requires a ChatGPT sign-in that was not performed by the builder.
+Run each command against the final working tree before a demo or release. A passing deterministic test is not proof that the real model runs, and a Node model smoke test is not proof of browser inference. Real-model download, browser inference, and the complete offline experience must be verified separately. Actual native CPU inference and browser-target WASM inference inside Node both passed again on October 6, 2026. The WASM check uses the exact 14,264,838-byte standard runtime shipped by the browser build. The real-model upgrade check also passed 36 plans covering listening exclusions and non-overlapping second sets across all settings and paces. See [native evidence](docs/model-verification.json), [WASM evidence](docs/wasm-verification.json), [constraint evidence](docs/mission-filter-verification.json), and [verification status](docs/verification.md). A separate manual Chromium walkthrough passed actual browser AI matching and the main planner, pocket, and journal flows on the public demo. Desktop and narrow layouts were inspected. The complete Playwright suite, offline reload, and physical-phone testing remain unperformed; see [browser evidence](docs/browser-verification.json).
+
+## Screenshots
+
+These are genuine October 6 browser captures with sample inputs, not mockups.
+
+![Real local AI matching in the public app](docs/screenshots/outward-ai-field-trip.jpg)
+
+[Resumed pocket timer](docs/screenshots/outward-pocket-mode.jpg) · [Narrow browser layout](docs/screenshots/outward-responsive-field-trip.jpg)
 
 ## Design choices
 

@@ -1,6 +1,6 @@
 # Verification — October 6, 2026
 
-This record separates implemented behavior, automated evidence, and work that still needs a real browser. The 0.2.0 upgrade is described in the [changelog](../CHANGELOG.md); the project began on October 5, 2026.
+This record separates implemented behavior, automated evidence, and remaining verification limits. The 0.2.0 upgrade is described in the [changelog](../CHANGELOG.md); the project began on October 5, 2026.
 
 ## Automated checks
 
@@ -27,32 +27,40 @@ All runs below use `Xenova/all-MiniLM-L6-v2`, pinned revision `751bff37182d3f121
 
 The WASM weights were 22,972,370 bytes; runtime, tokenizer, configuration, and application assets are additional. This is not a total-download figure. The evidence JSON distinguishes each runtime and exact scope. Native CPU and WASM outputs can differ slightly; neither result is a browser integration pass.
 
-## Blocked or not established
+## Actual browser walkthrough
 
-- Real browser rendering, responsive screenshots, the complete browser worker/asset-loading path, interactive browser accessibility testing, and offline reload remain unverified
-- The local browser route previously failed because the isolated browser could not create its required socket; the supported cloud browser blocks localhost. No successful replacement local-browser run is claimed
-- The owner-only deployed Site was rechecked on October 6 in the supported cloud browser and still displayed **“Log in to access”**. No ChatGPT sign-in or access-policy change was performed. This confirms the visible access barrier, not application rendering
-- Playwright coverage is supplied for desktop and mobile, but there is no passing end-to-end browser result or new screenshot evidence
-- No real-world outdoor field test has been performed for the user
-- No full screen-reader, touch-device, zoom, or contrast audit has been established
+The public demo was tested in the supported cloud Chromium browser on October 6, 2026, after public access was enabled. It opened without a ChatGPT login gate. These manual checks are separate from the Node tests above and are **not a passing full Playwright run**.
 
-## Browser acceptance checks still required
+- Real on-device AI loaded and returned **Wait for a wingbeat**, **Make a sound map**, and **Watch the invisible** for “I want to listen to birds and natural sounds.” with park/wander/20 minutes. The explanation displayed model identity and similarity scores
+- **Try another set** returned three different missions. Changing choices disabled the stale plan. Doorstep/stay/skip-listening produced a stationary plan without listening missions
+- Pocket mode started, survived reload, and caught up from 10:00 to 09:37. Full mission prompts remained available
+- A fictional sample reflection saved successfully. Its JSON export contained one AI-labeled note and no original mood input. Restoring it skipped the existing note without overwriting or duplicating it
+- Delete confirmation could be cancelled; confirmed deletion removed the sample; Undo restored it
+- Cancelling AI restored the controls and displayed explicit cancellation. A fresh real-AI retry succeeded
+- Enter opened an explanation dialog; Escape closed it and restored focus. Explicit sample mode displayed **SAMPLE · NO AI USED**
+- Desktop and narrow browser layouts were inspected. At 500 CSS-pixel viewport width the document was 485 pixels wide; at 300% browser zoom the 393-pixel viewport had a 388-pixel document. Neither showed horizontal overflow. This is not a physical-phone test
 
-Use a browser with permitted access to the app and a disposable profile/sample journal. Before a public demo:
+The inspected console entries were browser-extension metadata warnings; no app-origin error was observed in that inspection. This is not exhaustive error monitoring.
 
-1. Run the documented Playwright suite; inspect console errors and the actual AI worker/asset requests
-2. Test fresh model download, cached matching, cancel/retry, and timeout recovery. Confirm weight-download completion is distinct from full readiness
-3. Try another set in real AI and demo modes, verify all three current missions are excluded, and check every changed input disables a stale plan. Confirm skip-listening works across settings and movement choices
-4. Start a trip, reload and resume, inspect sanitized active storage, expand instructions, and save a sample reflection
-5. Restore an export, repeat it without duplicates, reject malformed/conflicting/over-capacity files without changes, and test deletion plus repeated Undo. Verify capacity recovery retains the unsaved reflection
-6. Review keyboard focus, dialogs, announcements, zoom, narrow layouts, and actual touch targets
-7. Test a production offline reload separately after complete asset/model caching. A warm tab or successful Node WASM run is insufficient
-8. Test release updating with an open trip. The new worker intentionally waits for existing app tabs to close; close and reopen all Outward tabs to activate it. Do not clear site data as a routine update step
+Machine-readable scope: [browser-verification.json](browser-verification.json). Genuine captures: [AI plan](screenshots/outward-ai-field-trip.jpg), [pocket mode](screenshots/outward-pocket-mode.jpg), and [narrow layout](screenshots/outward-responsive-field-trip.jpg). The sample journal text is explicitly fictional; no outdoor trip was performed.
 
-Record genuine outdoor experience separately. Do not invent an outing or infer one from test output.
+A singular/plural label found during this walkthrough was corrected: a one-minute journal now reads “1 minute.” The corrected source passed the same 179-test/typecheck/build command.
 
-## Private deployment
+## Remaining limits
 
-Owner-only preview: https://outward-field-guide.bharani1808.chatgpt.site
+- The supplied 12-scenario Playwright suite was discovered/compiled, not executed end-to-end
+- Production offline reload, cache eviction recovery, installability, and release activation during an open trip have not been manually established
+- Browser cancellation/retry passed; forced network-failure and 90-second timeout recovery are covered by automated lifecycle tests but were not manually induced in Chromium
+- No physical mobile device, actual outdoor field trial, full screen-reader review, or comprehensive accessibility/contrast audit was performed
+- Concurrent journal edits in separate tabs can overwrite changes; use one editing tab and keep important backups
+- No measured health, attention, fitness, or screen-time benefit is claimed
 
-The initial deployment was confirmed on October 5, 2026, and its access policy contained only the owner. This upgrade uses the same private review URL and preserves the owner-only audience. Deployment confirmation is separate from the test results above and is reported with the delivered release. This remains a private review link, not a public contest demo. No public repository or DEV post has been published.
+## Publication and provenance
+
+- Public demo: https://outward-field-guide.bharani1808.chatgpt.site
+- Public code: https://github.com/kudala-bharani/Outward
+- The initial public source commit is `7caebb37ca815309bd01194f28d17df85dd0add6`. All 58 initial exported files matched remote Git blobs; the starter README commit was preserved
+- The original project history starts with `3097a0b28e9b3ad174dff4fd74e174874b91476a` at October 5, 2026, 20:16:29 UTC. Development began earlier that evening after the challenge opened. Commit time alone is not proof of development start
+- GitHub had no Actions workflows, runs, check runs, or status contexts at the initial publication check. Local passes are not a GitHub CI pass
+- The source/privacy/license review is documented in [security-review.md](security-review.md); a source scan is not a penetration test or security certification
+- DEV article and contest entry remain subject to the entrant's review and approval; publishing source and a demo is not contest submission
